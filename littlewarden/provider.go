@@ -15,3 +15,11 @@ func Provider() terraform.ResourceProvider {
 		},
 	}
 }
+
+func providerConfigure(d *schema.ResourceData) (interface{}, error) {
+	config := Config{
+		ApiKey: d.Get("api_key").(string),
+	}
+
+	return config.Client()
+}

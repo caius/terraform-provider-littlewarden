@@ -4,11 +4,12 @@ terraform-provider-littlewarden: littlewarden/*.go main.go go.mod .tool-versions
 .PHONY: build
 build: terraform-provider-littlewarden
 
-terraform-provider-littlewarden.test: littlewarden/*.go main.go go.mod .tool-versions
-	go test -c
+littlewarden/littlewarden.test: littlewarden/*.go go.mod .tool-versions
+	cd littlewarden && go test -c
+	littlewarden/littlewarden.test
 
 .PHONY: test
-test: terraform-provider-littlewarden.test
+test: littlewarden/littlewarden.test
 
 .PHONY: example
 example: terraform-provider-littlewarden

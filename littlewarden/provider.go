@@ -6,5 +6,12 @@ import (
 )
 
 func Provider() terraform.ResourceProvider {
-	return &schema.Provider{}
+	return &schema.Provider{
+		Schema: map[string]*schema.Schema{
+			"api_key": {
+				Type:     schema.TypeString,
+				Required: true,
+			},
+		},
+	}
 }

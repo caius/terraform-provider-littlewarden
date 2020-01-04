@@ -13,4 +13,6 @@
 
 /terraform-provider-littlewarden
 
+# Ignore usual tf bits in example folder
 /example/.terraform
+/example/*.tfvars
